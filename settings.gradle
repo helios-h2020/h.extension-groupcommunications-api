@@ -1,0 +1,3 @@
+include ':app'
+include ':groupcommunications-api'
+rootProject.name = "groupcommunications-api"
