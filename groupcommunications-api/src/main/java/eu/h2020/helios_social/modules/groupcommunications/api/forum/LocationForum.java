@@ -4,6 +4,7 @@ package eu.h2020.helios_social.modules.groupcommunications.api.forum;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
+import java.util.List;
 
 import eu.h2020.helios_social.modules.groupcommunications.api.group.GroupType;
 
@@ -18,8 +19,8 @@ public class LocationForum extends Forum {
 
     public LocationForum(@NotNull String groupId, @NotNull String contextId,
                          @NotNull String name, String password,
-                         @NotNull Collection<String> moderators, GroupType groupType,
-                         Collection<String> tags, ForumMemberRole defaultMemberRole,
+                         @NotNull List<String> moderators, GroupType groupType,
+                         List<String> tags, ForumMemberRole defaultMemberRole,
                          double latitude, double longitude,
                          int radius) {
         super(groupId, contextId, name, password, moderators, groupType,

@@ -311,4 +311,6 @@ public interface ForumManager<T> {
      */
     void removeForumMemberList(String groupId)
             throws DbException, FormatException;
+
+    void removeForum(T txn, String groupId) throws DbException;
 }

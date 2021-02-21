@@ -70,4 +70,17 @@ public class MembershipInfo implements AbstractMessage {
     public void setAction(Action action) {
         this.action = action;
     }
+
+    @Override
+    public String toString() {
+        return "MembershipInfo{" +
+                "groupId='" + groupId + '\'' +
+                ", peerId=" + peerId +
+                ", role=" + role +
+                ", alias='" + alias + '\'' +
+                ", timestamp=" + timestamp +
+                ", action=" + action +
+                ", forumMemberList=" + forumMemberList +
+                '}';
+    }
 }
