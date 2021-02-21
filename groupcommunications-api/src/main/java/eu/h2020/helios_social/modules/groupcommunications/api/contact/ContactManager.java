@@ -100,4 +100,7 @@ public interface ContactManager {
 	 */
 	public Collection<PendingContact> getPendingContacts() throws DbException;
 
+    int pendingIncomingConnectionRequests() throws DbException;
+
+    int pendingOutgoingConnectionRequests() throws DbException;
 }
