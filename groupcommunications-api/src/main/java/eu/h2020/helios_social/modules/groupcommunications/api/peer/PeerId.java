@@ -21,4 +21,12 @@ public class PeerId {
 	public String getFakeId() {
 		return fakeId;
 	}
+
+	@Override
+	public String toString() {
+		return "PeerId{" +
+				"pid='" + pid + '\'' +
+				", fakeId='" + fakeId + '\'' +
+				'}';
+	}
 }

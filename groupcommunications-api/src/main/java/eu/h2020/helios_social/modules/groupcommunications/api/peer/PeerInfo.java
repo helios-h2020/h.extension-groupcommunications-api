@@ -6,110 +6,120 @@ package eu.h2020.helios_social.modules.groupcommunications.api.peer;
  */
 public class PeerInfo {
 
-	private PeerId peerId;
-	private byte[] profilePicture;
-	private String alias;
-	private String realName;
-	private String funnyName;
+    private PeerId peerId;
+    private byte[] profilePicture;
+    private String alias;
+    private String realName;
+    private String funnyName;
 
-	private PeerInfo(Builder builder) {
-		this.alias = builder.alias;
-		this.realName = builder.realName;
-		this.funnyName = builder.funnyName;
-		this.profilePicture = builder.profilePicture;
-		this.peerId = builder.peerId;
-	}
+    private PeerInfo(Builder builder) {
+        this.alias = builder.alias;
+        this.realName = builder.realName;
+        this.funnyName = builder.funnyName;
+        this.profilePicture = builder.profilePicture;
+        this.peerId = builder.peerId;
+    }
 
-	public static class Builder {
+    public static class Builder {
 
-		private String alias, realName, funnyName;
-		private byte[] profilePicture;
-		private PeerId peerId;
+        private String alias, realName, funnyName;
+        private byte[] profilePicture;
+        private PeerId peerId;
 
-		public Builder() {
-		}
+        public Builder() {
+        }
 
-		public Builder alias(String alias) {
-			this.alias = alias;
-			return this;
-		}
+        public Builder alias(String alias) {
+            this.alias = alias;
+            return this;
+        }
 
-		public Builder real_name(String realName) {
-			this.realName = realName;
-			return this;
-		}
+        public Builder real_name(String realName) {
+            this.realName = realName;
+            return this;
+        }
 
-		public Builder funny_name(String funnyName) {
-			this.funnyName = funnyName;
-			return this;
-		}
+        public Builder funny_name(String funnyName) {
+            this.funnyName = funnyName;
+            return this;
+        }
 
-		public Builder profile_picture(byte[] profilePicture) {
-			this.profilePicture = profilePicture;
-			return this;
-		}
+        public Builder profile_picture(byte[] profilePicture) {
+            this.profilePicture = profilePicture;
+            return this;
+        }
 
-		public Builder peerId(PeerId peer_id) {
-			this.peerId = peer_id;
-			return this;
-		}
+        public Builder peerId(PeerId peer_id) {
+            this.peerId = peer_id;
+            return this;
+        }
 
-		public PeerInfo build() {
-			return new PeerInfo(this);
-		}
-	}
+        public PeerInfo build() {
+            return new PeerInfo(this);
+        }
+    }
 
-	/**
-	 * Returns the profile picture of the peer
-	 *
-	 * @return
-	 */
-	public byte[] getProfilePicture() {
-		return profilePicture;
-	}
+    /**
+     * Returns the profile picture of the peer
+     *
+     * @return
+     */
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
 
-	/**
-	 * Updates the Users's profile picture
-	 *
-	 * @param selectedPicture
-	 */
-	public void updateProfilePicture(byte[] selectedPicture) {
-		this.profilePicture = selectedPicture;
-	}
+    /**
+     * Updates the Users's profile picture
+     *
+     * @param selectedPicture
+     */
+    public void updateProfilePicture(byte[] selectedPicture) {
+        this.profilePicture = selectedPicture;
+    }
 
-	public void setProfilePicture(byte[] profilePicture) {
-		this.profilePicture = profilePicture;
-	}
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
-	public String getAlias() {
-		return alias;
-	}
+    public String getAlias() {
+        return alias;
+    }
 
-	public void setAlias(String alias) {
-		this.alias = alias;
-	}
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 
-	public String getRealName() {
-		return realName;
-	}
+    public String getRealName() {
+        return realName;
+    }
 
-	public void setRealName(String realName) {
-		this.realName = realName;
-	}
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
 
-	public String getFunnyName() {
-		return funnyName;
-	}
+    public String getFunnyName() {
+        return funnyName;
+    }
 
-	public void setFunnyName(String funnyName) {
-		this.funnyName = funnyName;
-	}
+    public void setFunnyName(String funnyName) {
+        this.funnyName = funnyName;
+    }
 
-	public PeerId getPeerId() {
-		return peerId;
-	}
+    public PeerId getPeerId() {
+        return peerId;
+    }
 
-	public void setPeerId(PeerId peerId) {
-		this.peerId = peerId;
-	}
+    public void setPeerId(PeerId peerId) {
+        this.peerId = peerId;
+    }
+
+    @Override
+    public String toString() {
+        return "PeerInfo{" +
+                "peerId=" + peerId +
+                ", alias='" + alias + '\'' +
+                ", realName='" + realName + '\'' +
+                ", funnyName='" + funnyName + '\'' +
+                '}';
+    }
 }
