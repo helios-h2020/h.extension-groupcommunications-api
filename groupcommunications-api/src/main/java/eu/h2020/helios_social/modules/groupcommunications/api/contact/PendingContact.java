@@ -16,11 +16,19 @@ public class PendingContact extends Contact {
         this.timestamp = timestamp;
     }
 
+    public PendingContact(ContactId id, @Nullable String alias, byte[] profilePic,
+                          PendingContactType pendingContactType, String message, long timestamp) {
+        super(id, alias, profilePic);
+        this.pendingContactType = pendingContactType;
+        this.message = message;
+        this.timestamp = timestamp;
+    }
+
     public PendingContactType getPendingContactType() {
         return pendingContactType;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return message;
     }
 
