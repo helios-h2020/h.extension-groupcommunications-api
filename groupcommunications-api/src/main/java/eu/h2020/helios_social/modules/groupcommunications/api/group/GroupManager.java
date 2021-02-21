@@ -5,6 +5,8 @@ import java.util.Collection;
 import eu.h2020.helios_social.modules.groupcommunications.api.contact.ContactId;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.DbException;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.FormatException;
+import eu.h2020.helios_social.modules.groupcommunications.api.forum.Forum;
+import eu.h2020.helios_social.modules.groupcommunications.api.forum.ForumMemberRole;
 import eu.h2020.helios_social.modules.groupcommunications.api.privategroup.sharing.GroupInvitation;
 import eu.h2020.helios_social.modules.groupcommunications.api.utils.Pair;
 
@@ -42,6 +44,8 @@ public interface GroupManager<T> {
      */
     Group getGroup(String groupId, GroupType groupType)
             throws FormatException, DbException;
+
+    boolean groupAlreadyExists(String groupId) throws DbException;
 
     /**
      * Returns all groups (private groups and forums) in the given context, the user has
@@ -89,6 +93,10 @@ public interface GroupManager<T> {
      */
     Pair<String, String> getFakeIdentity(T txn, String groupId)
             throws DbException, FormatException;
+
+    void revealSelf(String groupId, boolean doReveal) throws DbException, FormatException;
+
+    void revealSelf(T txn, String groupId, boolean doReveal) throws DbException, FormatException;
 
     /**
      * Stores a new Group Invitation
@@ -140,6 +148,12 @@ public interface GroupManager<T> {
     Collection<GroupInvitation> getGroupInvitations()
             throws DbException;
 
+    int pendingIncomingGroupInvitations()
+            throws DbException;
+
+    int pendingOutgoingGroupInvitations()
+            throws DbException;
+
     /**
      * Returns true if the user is allowed to invite members to the given group
      *
@@ -151,4 +165,11 @@ public interface GroupManager<T> {
      */
     boolean isInvitationAllowed(String groupId, GroupType groupType)
             throws FormatException, DbException;
+
+    boolean identityRevealed(String groupId) throws DbException, FormatException;
+
+    ForumMemberRole getRole(Forum forum) throws DbException, FormatException;
+
+    ForumMemberRole getRole(T txn, Forum forum) throws DbException,
+            FormatException;
 }
