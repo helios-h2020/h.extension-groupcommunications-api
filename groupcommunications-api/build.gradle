@@ -9,9 +9,10 @@ dependencies {
 
     implementation "com.google.dagger:dagger:2.24"
     implementation 'eu.h2020.helios_social.core.contextualegonetwork:contextualegonetwork:1.0.20'
-    implementation('com.github.helios-h2020:h.extension-SocialGraphMining:1.0.3') {
+    implementation 'eu.h2020.helios_social.modules.socialgraphmining:socialgraphmining:1.0.19'
+    /*implementation('com.github.helios-h2020:h.extension-SocialGraphMining:1.0.3') {
         exclude module: 'h.core-SocialEgoNetwork'
-    }
+    }*/
     annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
     implementation 'com.github.javafaker:javafaker:1.0.2'
 }
