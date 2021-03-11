@@ -1,5 +1,8 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.privategroup;
 
+import java.util.List;
+
+import eu.h2020.helios_social.modules.groupcommunications.api.messaging.Attachment;
 import eu.h2020.helios_social.modules.groupcommunications.api.messaging.GroupMessage;
 
 public interface GroupMessageFactory {
@@ -16,4 +19,7 @@ public interface GroupMessageFactory {
      */
     GroupMessage createGroupMessage(String groupId,
                                     String text, long timestamp, String funnyName, String fakeId);
+
+    GroupMessage createImageAttachmentMessage(String groupId, List<Attachment> attachments,
+                                              String text, long timestamp, String funnyName, String fakeId);
 }

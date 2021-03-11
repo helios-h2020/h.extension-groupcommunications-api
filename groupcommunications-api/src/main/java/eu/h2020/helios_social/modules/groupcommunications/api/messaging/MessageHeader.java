@@ -1,5 +1,7 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.messaging;
 
+import java.util.List;
+
 import eu.h2020.helios_social.modules.groupcommunications.api.conversation.ConversationMessageVisitor;
 
 /**
@@ -14,10 +16,12 @@ public class MessageHeader {
     private boolean favourite;
     private MessageState state;
     private final Message.Type messageType;
+    private final boolean hasText;
+    private List<Attachment> attachments;
 
     public MessageHeader(String messageId, String groupId, long timestamp,
                          MessageState state, boolean incoming, boolean favourite,
-                         Message.Type messageType) {
+                         Message.Type messageType, boolean hasText) {
         this.messageId = messageId;
         this.groupId = groupId;
         this.timestamp = timestamp;
@@ -25,6 +29,7 @@ public class MessageHeader {
         this.state = state;
         this.favourite = favourite;
         this.messageType = messageType;
+        this.hasText = hasText;
     }
 
     /**
@@ -46,6 +51,8 @@ public class MessageHeader {
         return incoming;
     }
 
+    public boolean hasText() {return hasText;}
+
     /**
      * Returns message state.
      */
@@ -66,6 +73,14 @@ public class MessageHeader {
 
     public void setMessageState(MessageState state) {
         this.state = state;
+    }
+
+    public void setAttachments(List<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
     }
 
     public <T> T accept(ConversationMessageVisitor<T> v) {

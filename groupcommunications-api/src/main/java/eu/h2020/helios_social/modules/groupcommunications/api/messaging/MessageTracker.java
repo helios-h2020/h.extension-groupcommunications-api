@@ -50,6 +50,9 @@ public interface MessageTracker<T> {
 	void setReadFlag(String groupId, String messageId)
 			throws DbException;
 
+	void setDeliveredFlag(String messageId)
+			throws DbException;
+
 	/**
 	 * Resets the GroupCount
 	 */

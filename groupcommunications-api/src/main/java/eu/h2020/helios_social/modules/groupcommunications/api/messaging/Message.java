@@ -2,6 +2,8 @@ package eu.h2020.helios_social.modules.groupcommunications.api.messaging;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 
 /**
  * Represents a Message
@@ -9,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public class Message implements AbstractMessage {
 
     public enum Type {
-        TEXT(0), ATTACHMENT(1), VIDEOCALL(2), ACK(3), EVENT(4);
+        TEXT(0), ATTACHMENT(1), VIDEOCALL(2), ACK(3), EVENT(4), IMAGES(5);
 
         private final int value;
 
@@ -34,6 +36,7 @@ public class Message implements AbstractMessage {
     private String body;
     private String mediaFileName;
     private final Message.Type message_type;
+    private List<Attachment> attachments;
 
     /**
      * Contracts a new instance of Message
@@ -69,6 +72,16 @@ public class Message implements AbstractMessage {
         this.timestamp = timestamp;
         this.body = body;
         this.message_type = type;
+    }
+
+    public Message(@NotNull String id, @NotNull String groupId, long timestamp,
+                   String body, Message.Type type, List<Attachment> attachments) {
+        this.id = id;
+        this.groupId = groupId;
+        this.timestamp = timestamp;
+        this.body = body;
+        this.message_type = type;
+        this.attachments = attachments;
     }
 
     public Message(String preferences, String body) {
@@ -109,6 +122,14 @@ public class Message implements AbstractMessage {
 
     public String getPreferences() {
         return preferences;
+    }
+
+    public void setAttachment(List<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
     }
 
     /**

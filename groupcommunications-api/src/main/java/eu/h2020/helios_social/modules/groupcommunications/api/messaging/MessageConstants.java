@@ -9,4 +9,5 @@ public interface MessageConstants {
 	String PEER_ALIAS = "alias";
 	String PEER_REAL_NAME = "realName";
 	String PEER_FUNNY_NAME = "funnyName";
+	String ATTACHMENTS = "attachments";
 }
