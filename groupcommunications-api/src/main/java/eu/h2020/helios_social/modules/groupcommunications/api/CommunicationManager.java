@@ -1,5 +1,7 @@
 package eu.h2020.helios_social.modules.groupcommunications.api;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -13,6 +15,22 @@ import eu.h2020.helios_social.modules.groupcommunications.api.utils.GroupId;
  * Interface for GCS's Communication Manager
  */
 public interface CommunicationManager<T> {
+
+    /**
+     * Returns only the list of contact ids that are online from the given list of contactIds
+     *
+     * @param contactIds
+     * @return
+     */
+    List<ContactId> getOnlineContacts(Collection<ContactId> contactIds);
+
+    /**
+     * Returns only the list of peer ids that are online from the given list of peerIds
+     *
+     * @param peerIds
+     * @return
+     */
+    List<PeerId> getOnlinePeers(Collection<PeerId> peerIds);
 
     /**
      * Sends a message to the defined contact. Different type of messages are supported based on
@@ -101,4 +119,11 @@ public interface CommunicationManager<T> {
      * @param password
      */
     void unsubscribe(String groupId, String password);
+
+    /**
+     * sends online status to all contacts with a defined delay in millis
+     *
+     * @param delay
+     */
+    void sendOnlineStatusToAllContacts(long delay);
 }
