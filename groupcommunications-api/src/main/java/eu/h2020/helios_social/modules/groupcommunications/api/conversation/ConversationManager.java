@@ -18,7 +18,7 @@ import eu.h2020.helios_social.modules.groupcommunications.api.messaging.MessageH
 /**
  * Interface for Conversation Manager
  */
-public interface ConversationManager {
+public interface ConversationManager<T> {
 
     /**
      * Returns all message headers given a group identifier
@@ -29,6 +29,16 @@ public interface ConversationManager {
      */
     Collection<MessageHeader> getMessageHeaders(String groupId)
             throws DbException;
+
+    MessageHeader getMessageHeader(String messageId)
+            throws DbException;
+
+    GroupMessageHeader getGroupMessageHeader(String messageId)
+            throws DbException, FormatException;
+
+    MessageHeader getMessageHeader(T txn, String messageId) throws DbException;
+
+    GroupMessageHeader getGroupMessageHeader(T txn, String messageId) throws DbException, FormatException;
 
     /**
      * Returns all group message headers given a group identifier
@@ -64,6 +74,10 @@ public interface ConversationManager {
      */
     Group getContactGroup(ContactId contactId, String contextId)
             throws DbException;
+
+    ContactId getContactIdByGroupId(String groupId) throws DbException;
+
+    ContactId getContactIdByGroupId(T txn, String groupId) throws DbException;
 
     /**
      * Stores a group corresponding to the private conversation for the given contact
