@@ -4,8 +4,9 @@ import org.jetbrains.annotations.NotNull;
 
 import eu.h2020.helios_social.modules.groupcommunications.api.forum.ForumType;
 import eu.h2020.helios_social.modules.groupcommunications.api.messaging.AbstractMessage;
+import eu.h2020.helios_social.modules.groupcommunications.api.resourcediscovery.queries.Queryable;
 
-public class HeliosEvent implements AbstractMessage {
+public class HeliosEvent implements AbstractMessage, Queryable {
 
     public enum Type {
         PRIVATE(0), PUBLIC(1), SHARABLE(2);
@@ -24,7 +25,7 @@ public class HeliosEvent implements AbstractMessage {
             for (Type s : values()) if (s.value == value) return s;
             throw new IllegalArgumentException();
         }
-        }
+    }
 
     private String eventId;
     private String contextId;
@@ -34,6 +35,7 @@ public class HeliosEvent implements AbstractMessage {
     private double lat, lng;
     private String url;
     private Type eventType;
+    private String queryableType;
 
     public HeliosEvent(@NotNull String eventId, @NotNull String contextId, @NotNull String title,
                        long timestamp) {
@@ -42,6 +44,7 @@ public class HeliosEvent implements AbstractMessage {
         this.timestamp = timestamp;
         this.contextId = contextId;
         this.eventType = Type.PUBLIC;
+        this.queryableType = "HeliosEvent";
     }
 
     public HeliosEvent setDescription(String description) {
@@ -65,7 +68,7 @@ public class HeliosEvent implements AbstractMessage {
         return this;
     }
 
-    public String getEventId() {
+    public String getId() {
         return eventId;
     }
 
@@ -99,5 +102,9 @@ public class HeliosEvent implements AbstractMessage {
 
     public long getTimestamp() {
         return timestamp;
+    }
+
+    public String getQueryableType() {
+        return queryableType;
     }
 }

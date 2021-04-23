@@ -51,7 +51,9 @@ public class MessageHeader {
         return incoming;
     }
 
-    public boolean hasText() {return hasText;}
+    public boolean hasText() {
+        return hasText;
+    }
 
     /**
      * Returns message state.
@@ -87,5 +89,19 @@ public class MessageHeader {
         return v.visitMessageHeader(this);
     }
 
+    @Override
+    public String toString() {
+        return "MessageHeader{" +
+                "messageId='" + messageId + '\'' +
+                ", groupId='" + groupId + '\'' +
+                ", timestamp=" + timestamp +
+                ", incoming=" + incoming +
+                ", favourite=" + favourite +
+                ", state=" + state +
+                ", messageType=" + messageType +
+                ", hasText=" + hasText +
+                ", attachments=" + attachments +
+                '}';
+    }
 }
 

@@ -18,6 +18,7 @@ import eu.h2020.helios_social.modules.groupcommunications.api.context.utils.Seas
 public class SeasonalForum<T> extends Forum {
 
     private T season;
+    private String queryableType;
 
     public SeasonalForum(@NotNull String groupId, String contextId,
                          @NotNull String name, String password,
@@ -27,6 +28,7 @@ public class SeasonalForum<T> extends Forum {
         super(groupId, contextId, name, password, moderators, forumType,
                 tags, defaultMemberRole);
         this.season = season;
+        this.queryableType = "SeasonalForum";
     }
 
     public T getSeason() {
@@ -41,5 +43,9 @@ public class SeasonalForum<T> extends Forum {
         } else {
             return ((Datespan) season).contains(LocalDate.now());
         }
+    }
+
+    public String getQueryableType() {
+        return queryableType;
     }
 }

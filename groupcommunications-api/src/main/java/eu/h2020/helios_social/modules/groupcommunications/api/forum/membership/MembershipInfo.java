@@ -18,6 +18,7 @@ public class MembershipInfo implements AbstractMessage {
     private PeerId peerId;
     private ForumMemberRole role;
     private String alias;
+    private String fakeName;
     private long timestamp;
     private Action action;
     private Collection<ForumMember> forumMemberList;
@@ -26,10 +27,12 @@ public class MembershipInfo implements AbstractMessage {
                           PeerId peerId,
                           ForumMemberRole role,
                           String alias,
+                          String fakeName,
                           long timestamp) {
         this.groupId = groupId;
         this.peerId = peerId;
         this.alias = alias;
+        this.fakeName = fakeName;
         this.role = role;
         this.timestamp = timestamp;
     }
@@ -49,6 +52,10 @@ public class MembershipInfo implements AbstractMessage {
 
     public String getAlias() {
         return alias;
+    }
+
+    public String getFakeName() {
+        return fakeName;
     }
 
     public long getTimestamp() {
@@ -78,6 +85,7 @@ public class MembershipInfo implements AbstractMessage {
                 ", peerId=" + peerId +
                 ", role=" + role +
                 ", alias='" + alias + '\'' +
+                ", fakeName='" + fakeName + '\'' +
                 ", timestamp=" + timestamp +
                 ", action=" + action +
                 ", forumMemberList=" + forumMemberList +

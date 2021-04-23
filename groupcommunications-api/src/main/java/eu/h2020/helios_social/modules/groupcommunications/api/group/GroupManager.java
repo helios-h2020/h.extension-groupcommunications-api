@@ -59,6 +59,9 @@ public interface GroupManager<T> {
     Collection<Group> getGroups(String contextId)
             throws DbException, FormatException;
 
+    Collection<Forum> getForums(String contextId)
+            throws DbException, FormatException;
+
     /**
      * Returns all groups (private groups and forums) in the given context, the user has
      * joined/subscribed

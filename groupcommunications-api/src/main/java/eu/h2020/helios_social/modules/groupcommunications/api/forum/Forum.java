@@ -9,17 +9,19 @@ import java.util.List;
 import eu.h2020.helios_social.modules.groupcommunications.api.group.Group;
 import eu.h2020.helios_social.modules.groupcommunications.api.group.GroupType;
 import eu.h2020.helios_social.modules.groupcommunications.api.messaging.AbstractMessage;
+import eu.h2020.helios_social.modules.groupcommunications.api.resourcediscovery.queries.Queryable;
 
 /**
  * Forum is a Sharable conversation
  */
-public class Forum extends Group implements AbstractMessage {
+public class Forum extends Group implements AbstractMessage, Queryable {
 
     private String name;
     private List<String> moderators;
     private String password;
     private List<String> tags;
     private ForumMemberRole defaultMemberRole;
+    protected String queryableType;
 
     /**
      * Creates a sharable Forum with a given name
@@ -42,6 +44,7 @@ public class Forum extends Group implements AbstractMessage {
         }
         this.tags = tags;
         this.defaultMemberRole = defaultRole;
+        this.queryableType = "Forum";
     }
 
     public String getName() {
@@ -66,5 +69,9 @@ public class Forum extends Group implements AbstractMessage {
 
     public ForumMemberRole getDefaultMemberRole() {
         return defaultMemberRole;
+    }
+
+    public String getQueryableType() {
+        return queryableType;
     }
 }

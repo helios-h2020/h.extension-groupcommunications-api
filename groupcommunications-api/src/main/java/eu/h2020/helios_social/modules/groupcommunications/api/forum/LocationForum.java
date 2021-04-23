@@ -28,6 +28,7 @@ public class LocationForum extends Forum {
         this.latitude = latitude;
         this.longitude = longitude;
         this.radius = radius;
+        this.queryableType = "LocationForum";
     }
 
     public double getLatitude() {
@@ -40,5 +41,9 @@ public class LocationForum extends Forum {
 
     public int getRadius() {
         return radius;
+    }
+
+    public String getQueryableType() {
+        return queryableType;
     }
 }

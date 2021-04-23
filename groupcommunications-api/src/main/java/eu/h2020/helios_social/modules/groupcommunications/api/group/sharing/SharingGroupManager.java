@@ -2,6 +2,7 @@ package eu.h2020.helios_social.modules.groupcommunications.api.group.sharing;
 
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.DbException;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.FormatException;
+import eu.h2020.helios_social.modules.groupcommunications.api.forum.Forum;
 import eu.h2020.helios_social.modules.groupcommunications.api.privategroup.sharing.GroupInvitation;
 
 public interface SharingGroupManager {
@@ -24,6 +25,8 @@ public interface SharingGroupManager {
      */
     void acceptGroupInvitation(GroupInvitation privateGroupInvite)
             throws DbException, FormatException;
+
+    void joinForum(Forum forum) throws DbException, FormatException;
 
     /**
      * Rejects an incoming Group Invitation and notifies the contact that she has rejected the

@@ -3,6 +3,7 @@ package eu.h2020.helios_social.modules.groupcommunications.api.forum;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
+import java.util.List;
 
 import eu.h2020.helios_social.modules.groupcommunications.api.context.utils.Datespan;
 import eu.h2020.helios_social.modules.groupcommunications.api.context.utils.Daytime;
@@ -75,6 +76,9 @@ public interface ForumManager<T> {
      * @throws FormatException
      */
     Collection<Forum> getForums(T txn)
+            throws DbException, FormatException;
+
+    List<Forum> getPublicLocationForums(T txn, String contextId)
             throws DbException, FormatException;
 
     /**

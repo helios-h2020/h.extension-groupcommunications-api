@@ -4,7 +4,6 @@ import eu.h2020.helios_social.modules.groupcommunications.api.contact.ContactId;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.DbException;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.FormatException;
 import eu.h2020.helios_social.modules.groupcommunications.api.group.Group;
-import eu.h2020.helios_social.modules.groupcommunications.api.privategroup.PrivateGroup;
 
 /**
  * Interface for the Messaging Manager

@@ -9,50 +9,56 @@ import eu.h2020.helios_social.modules.groupcommunications.api.peer.PeerId;
  */
 public class ForumMember implements AbstractMessage {
 
-	private PeerId peerId;
-	private ForumMemberRole role;
-	private String groupId;
-	private String alias;
-	private long lstUpdateTimestamp;
+    private PeerId peerId;
+    private ForumMemberRole role;
+    private String groupId;
+    private String alias;
+    private String fakeName;
+    private long lstUpdateTimestamp;
 
-	public ForumMember(PeerId peerId, String groupId, String alias,
-			ForumMemberRole role,
-			long lstUpdateTimestamp) {
-		this.peerId = peerId;
-		this.role = role;
-		this.groupId = groupId;
-		this.alias = alias;
-		this.lstUpdateTimestamp = lstUpdateTimestamp;
-	}
+    public ForumMember(PeerId peerId, String groupId, String alias, String fakeName,
+                       ForumMemberRole role,
+                       long lstUpdateTimestamp) {
+        this.peerId = peerId;
+        this.role = role;
+        this.groupId = groupId;
+        this.alias = alias;
+        this.fakeName = fakeName;
+        this.lstUpdateTimestamp = lstUpdateTimestamp;
+    }
 
-	public String getGroupId() {
-		return groupId;
-	}
+    public String getGroupId() {
+        return groupId;
+    }
 
-	public PeerId getPeerId() {
-		return peerId;
-	}
+    public PeerId getPeerId() {
+        return peerId;
+    }
 
-	public String getAlias() {
-		return alias;
-	}
+    public String getAlias() {
+        return alias;
+    }
 
-	public boolean isModerator() {
-		return (role == ForumMemberRole.MODERATOR) ||
-				(role == ForumMemberRole.ADMINISTRATOR);
-	}
+    public String getFakeName() {
+        return fakeName;
+    }
 
-	public long getLstTimestamp() {
-		return lstUpdateTimestamp;
-	}
+    public boolean isModerator() {
+        return (role == ForumMemberRole.MODERATOR) ||
+                (role == ForumMemberRole.ADMINISTRATOR);
+    }
 
-	/**
-	 * Returns Member's Role
-	 *
-	 * @return
-	 */
-	public ForumMemberRole getRole() {
-		return role;
-	}
+    public long getLstTimestamp() {
+        return lstUpdateTimestamp;
+    }
+
+    /**
+     * Returns Member's Role
+     *
+     * @return
+     */
+    public ForumMemberRole getRole() {
+        return role;
+    }
 
 }
