@@ -33,8 +33,6 @@ repositories {
 
 And the variables of Nexus's credentials are stored locally at `~/.gradle/gradle.properties`:
 
-And the variables of Nexus's credentials are stored locally at `~/.gradle/gradle.properties`:
-
 ```
 heliosUser=username
 heliosPassword=password
