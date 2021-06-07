@@ -1,6 +1,6 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.messaging;
 
-public class Attachment {
+public class Attachment implements Cloneable {
 
     private String uri;
     private String url;
@@ -45,5 +45,14 @@ public class Attachment {
                 ", url='" + url + '\'' +
                 ", contentType='" + contentType + '\'' +
                 '}';
+    }
+
+    @Override
+    public Attachment clone() {
+        try {
+            return (Attachment) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return new Attachment(this.uri, this.url, this.contentType);
+        }
     }
 }
