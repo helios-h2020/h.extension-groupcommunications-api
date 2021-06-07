@@ -45,6 +45,8 @@ public interface GroupManager<T> {
     Group getGroup(String groupId, GroupType groupType)
             throws FormatException, DbException;
 
+    GroupType getGroupType(String groupId) throws DbException;
+
     boolean groupAlreadyExists(String groupId) throws DbException;
 
     /**
