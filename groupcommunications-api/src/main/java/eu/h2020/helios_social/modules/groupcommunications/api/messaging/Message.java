@@ -11,7 +11,7 @@ import java.util.List;
 public class Message implements AbstractMessage {
 
     public enum Type {
-        TEXT(0), ATTACHMENT(1), VIDEOCALL(2), ACK(3), EVENT(4), IMAGES(5);
+        TEXT(0), ATTACHMENT(1), VIDEOCALL(2), ACK(3), EVENT(4), IMAGES(5), CONTACT(6);
 
         private final int value;
 
