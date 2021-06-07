@@ -1,6 +1,7 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.contact.connection;
 
 import eu.h2020.helios_social.modules.groupcommunications.api.contact.PendingContact;
+import eu.h2020.helios_social.modules.groupcommunications.api.exception.DbException;
 
 public interface ConnectionManager {
 
@@ -9,7 +10,7 @@ public interface ConnectionManager {
      *
      * @param pendingContact
      */
-    void sendConnectionRequest(PendingContact pendingContact);
+    void sendConnectionRequest(PendingContact pendingContact) throws DbException;
 
     /**
      * Accepts connection request from the given pending contact

@@ -42,8 +42,7 @@ public interface CommunicationManager<T> {
      * @param message
      */
     void sendDirectMessage(String protocolId, ContactId contactId,
-                           AbstractMessage message)
-            throws InterruptedException, ExecutionException, TimeoutException;
+                           AbstractMessage message);
 
     /**
      * Sends a message to the defined peer. Different type of messages are supported based on
@@ -55,8 +54,7 @@ public interface CommunicationManager<T> {
      * @param message
      */
     void sendDirectMessage(String protocolId, PeerId peerId,
-                           AbstractMessage message)
-            throws InterruptedException, ExecutionException, TimeoutException;
+                           AbstractMessage message);
 
     /**
      * Sends a group message given the group identifier and password.
@@ -126,4 +124,6 @@ public interface CommunicationManager<T> {
      * @param delay
      */
     void sendOnlineStatusToAllContacts(long delay);
+
+    boolean isConnected();
 }
