@@ -4,6 +4,7 @@ import java.util.List;
 
 import eu.h2020.helios_social.modules.groupcommunications.api.messaging.Attachment;
 import eu.h2020.helios_social.modules.groupcommunications.api.messaging.GroupMessage;
+import eu.h2020.helios_social.modules.groupcommunications.api.messaging.Message;
 
 public interface GroupMessageFactory {
 
@@ -20,6 +21,6 @@ public interface GroupMessageFactory {
     GroupMessage createGroupMessage(String groupId,
                                     String text, long timestamp, String funnyName, String fakeId);
 
-    GroupMessage createImageAttachmentMessage(String groupId, List<Attachment> attachments,
-                                              String text, long timestamp, String funnyName, String fakeId);
+    GroupMessage createAttachmentMessage(String groupId, List<Attachment> attachments, Message.Type messageType,
+                                         String text, long timestamp, String funnyName, String fakeId);
 }

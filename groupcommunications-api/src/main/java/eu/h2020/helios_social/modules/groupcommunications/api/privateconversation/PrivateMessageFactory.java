@@ -23,8 +23,8 @@ public interface PrivateMessageFactory {
     Message createTextMessage(String groupId, long timestamp,
                               String text);
 
-    Message createImageAttachmentMessage(String groupId, long timestamp,
-                                         String text, List<Attachment> attachments);
+    Message createAttachmentMessage(String groupId, long timestamp, String text,
+                                         List<Attachment> attachments, Message.Type messageType);
 
     /**
      * Creates a new video call message given the group Identifier, timestamp and room identifier
