@@ -7,8 +7,8 @@ dependencies {
     implementation("com.google.guava:guava:29.0-android")
 
     implementation "com.google.dagger:dagger:2.24"
-    implementation 'eu.h2020.helios_social.core.contextualegonetwork:contextualegonetwork:1.0.23'
-    implementation 'eu.h2020.helios_social.modules.socialgraphmining:socialgraphmining:1.0.28'
+    implementation 'eu.h2020.helios_social.core.contextualegonetwork:contextualegonetwork:1.0.24'
+    implementation 'eu.h2020.helios_social.modules.socialgraphmining:socialgraphmining:1.0.34'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
     implementation 'com.github.javafaker:javafaker:1.0.2'
 }
