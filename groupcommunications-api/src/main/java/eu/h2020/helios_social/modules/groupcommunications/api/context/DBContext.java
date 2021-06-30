@@ -40,4 +40,14 @@ public class DBContext {
 	public ContextType getContextType(){
 		return contextType;
 	}
+
+	@Override
+	public String toString() {
+		return "DBContext{" +
+				"id='" + id + '\'' +
+				", name='" + name + '\'' +
+				", color=" + color +
+				", contextType=" + contextType +
+				'}';
+	}
 }
