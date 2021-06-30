@@ -11,7 +11,7 @@ import java.util.List;
 public class Message implements AbstractMessage {
 
     public enum Type {
-        TEXT(0), FILE_ATTACHMENT(1), VIDEOCALL(2), ACK(3), EVENT(4), IMAGES(5), CONTACT(6);
+        TEXT(0), FILE_ATTACHMENT(1), VIDEOCALL(2), ACK(3), EVENT(4), IMAGES(5), CONTACT(6), ACK_INVALID_GROUP(7);
 
         private final int value;
 
@@ -88,6 +88,11 @@ public class Message implements AbstractMessage {
         this.preferences = preferences;
         this.body = body;
         this.message_type = Type.ACK;
+    }
+
+    public Message(String groupId) {
+        this.groupId = groupId;
+        this.message_type = Type.ACK_INVALID_GROUP;
     }
 
     public String getMessageBody() {
