@@ -8,14 +8,26 @@ public class DBContext {
 	public String name;
 	public Integer color;
 	public ContextType contextType;
+	public String privateName;
 
-	public DBContext(@NotNull String id, String name, Integer color,
-			ContextType contextType) {
+	public DBContext(String id, String name, Integer color,
+			ContextType contextType, @NotNull String privateName) {
+		this.id = id;
+		this.name = name;
+		this.color = color;
+		this.contextType = contextType;
+		this.privateName = privateName;
+	}
+
+	public DBContext(String id, String name, Integer color,
+					 ContextType contextType) {
 		this.id = id;
 		this.name = name;
 		this.color = color;
 		this.contextType = contextType;
 	}
+
+
 
 	public String getId() {
 		return id;
@@ -39,6 +51,14 @@ public class DBContext {
 
 	public ContextType getContextType(){
 		return contextType;
+	}
+
+	public String getPrivateName() {
+		return privateName;
+	}
+
+	public void setPrivateName(String privateName) {
+		this.privateName = privateName;
 	}
 
 	@Override
