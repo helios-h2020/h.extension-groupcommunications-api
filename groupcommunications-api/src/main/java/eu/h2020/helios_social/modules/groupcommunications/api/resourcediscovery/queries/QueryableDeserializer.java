@@ -29,9 +29,9 @@ public class QueryableDeserializer implements JsonDeserializer<Queryable> {
         JsonObject queryableObject = json.getAsJsonObject();
         System.out.println(json);
         System.out.println(queryableTypeElementName);
-        JsonElement queryableTypeElement = queryableObject.get(queryableTypeElementName);
+        JsonElement classType = queryableObject.get(queryableTypeElementName);
 
-        Class<? extends Queryable> queryableType = queryableTypeRegistry.get(queryableTypeElement.getAsString());
+        Class<? extends Queryable> queryableType = queryableTypeRegistry.get(classType.getAsString());
         return gson.fromJson(queryableObject, queryableType);
     }
 }

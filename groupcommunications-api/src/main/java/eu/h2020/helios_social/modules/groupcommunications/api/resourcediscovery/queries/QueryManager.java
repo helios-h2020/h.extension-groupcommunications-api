@@ -7,6 +7,11 @@ public interface QueryManager {
 
     void sendQuery(Query query) throws DbException;
 
+    void sendQuery(TextQuery query) throws DbException;
+
+    void sendQuery(LocationQuery query) throws DbException;
+
+
     void forwardQuery(PeerId peerId, Query query);
 
     void sendQueryResponse(PeerId peerId, QueryResponse<Queryable> queryResponse);
