@@ -1,5 +1,6 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.contact;
 
+import java.security.PublicKey;
 import java.util.Objects;
 
 import javax.annotation.Nullable;
@@ -9,6 +10,7 @@ public class Contact {
     private ContactId id;
     private String alias;
     private byte[] profilePicture;
+    private PublicKey publicKey;
 
     public Contact(ContactId id, @Nullable String alias) {
         this.id = id;
@@ -16,10 +18,11 @@ public class Contact {
     }
 
     public Contact(ContactId id, @Nullable String alias,
-                   byte[] profilePicture) {
+                   byte[] profilePicture, PublicKey publicKey) {
         this.id = id;
         this.alias = alias;
         this.profilePicture = profilePicture;
+        this.publicKey = publicKey;
     }
 
     public ContactId getId() {
@@ -40,6 +43,10 @@ public class Contact {
 
     public byte[] getProfilePicture() {
         return profilePicture;
+    }
+
+    public PublicKey getPublicKey() {
+        return publicKey;
     }
 
     @Override

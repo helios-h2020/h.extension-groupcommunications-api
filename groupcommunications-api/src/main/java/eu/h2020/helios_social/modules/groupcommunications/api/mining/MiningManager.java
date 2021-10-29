@@ -10,5 +10,8 @@ public interface MiningManager {
 
     HashMap<Node, Double> getNextInteractionRecommendations(String egoContextId);
 
+    HashMap<Node, Double> getInteractionRecommendationsProbabilities(String egoContextId);
+
+
     List getSmoothPersonalizedProfile(ContentAwareProfilingType profilingType);
 }

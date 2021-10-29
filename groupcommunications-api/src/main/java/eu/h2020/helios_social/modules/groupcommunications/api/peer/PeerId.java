@@ -1,5 +1,7 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.peer;
 
+import java.util.Objects;
+
 public class PeerId {
 
 	public String pid;
@@ -28,5 +30,18 @@ public class PeerId {
 				"pid='" + pid + '\'' +
 				", fakeId='" + fakeId + '\'' +
 				'}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof PeerId)) return false;
+		PeerId peerId = (PeerId) o;
+		return pid.equals(peerId.pid);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(pid);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Collection;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.DbException;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.FormatException;
 import eu.h2020.helios_social.modules.groupcommunications.api.forum.Forum;
+import eu.h2020.helios_social.modules.groupcommunications.api.forum.sharing.ForumAccessRequest;
 import eu.h2020.helios_social.modules.groupcommunications.api.group.GroupMember;
 import eu.h2020.helios_social.modules.groupcommunications.api.privategroup.sharing.GroupInvitation;
 
@@ -29,6 +30,9 @@ public interface SharingGroupManager {
     void acceptGroupInvitation(GroupInvitation privateGroupInvite)
             throws DbException, FormatException;
 
+    void acceptGroupInvitation(GroupInvitation privateGroupInvite, boolean isRequestAutoAccept)
+            throws DbException, FormatException;
+
     void joinForum(Forum forum) throws DbException, FormatException;
 
     /**
@@ -44,4 +48,11 @@ public interface SharingGroupManager {
 
     void sendUpdatedGroupMembers (Collection<GroupMember> groupMembers, String newMemberId, String groupId)
         throws DbException;
+
+    void sendGroupAccessRequest(ForumAccessRequest forumAccessRequest) throws DbException;
+
+    void acceptGroupAccessRequest(ForumAccessRequest forumAccessRequest) throws DbException;
+
+    void rejectGroupAccessRequest(ForumAccessRequest forumAccessRequest) throws DbException;
+
 }

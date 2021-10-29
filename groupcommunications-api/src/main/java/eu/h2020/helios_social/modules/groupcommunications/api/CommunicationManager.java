@@ -126,4 +126,12 @@ public interface CommunicationManager<T> {
     void sendOnlineStatusToAllContacts(long delay);
 
     boolean isConnected();
+
+    void stop();
+
+    void start();
+
+    Boolean getNeedRestart();
+
+    void setNeedRestart(Boolean needRestart);
 }

@@ -37,9 +37,9 @@ public interface PrivateGroupManager<T> {
     /**
      * Leaves a private group that was previously joined
      *
-     * @param privateGroup
+     * @param groupId
      */
-    void leavePrivateGroup(PrivateGroup privateGroup);
+    void leavePrivateGroup(String groupId) throws DbException;
 
 
     /**
@@ -98,8 +98,7 @@ public interface PrivateGroupManager<T> {
     /**
      * Adds a member to the given private group
      *
-     * @param groupId
-     * @param contactId
+     * @param groupMember
      * @throws DbException
      * @throws FormatException
      */
@@ -110,8 +109,7 @@ public interface PrivateGroupManager<T> {
      * Adds a member to the given private group
      *
      * @param txn
-     * @param groupId
-     * @param contactId
+     * @param groupMember
      * @throws DbException
      * @throws FormatException
      */
@@ -119,4 +117,5 @@ public interface PrivateGroupManager<T> {
             throws DbException, FormatException;
 
 
+    void removeMember(GroupMember groupMember) throws DbException, FormatException;
 }

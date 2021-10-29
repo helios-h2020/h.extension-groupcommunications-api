@@ -12,14 +12,16 @@ public class PrivateGroupNewMemberInfo implements AbstractMessage {
     private String message;
     private String groupId;
     private String peerId;
+    private boolean isRemovedMember;
 
 
     public PrivateGroupNewMemberInfo(@NotNull String alias, byte[] profilePicture, String peerId,
-                                     String groupId) {
+                                     String groupId, boolean isRemovedMember) {
         this.alias = alias;
         this.profilePicture = profilePicture;
         this.peerId = peerId;
         this.groupId = groupId;
+        this.isRemovedMember = isRemovedMember;
     }
 
     public PrivateGroupNewMemberInfo setMessage(String message) {
@@ -47,4 +49,9 @@ public class PrivateGroupNewMemberInfo implements AbstractMessage {
     public String getPeerId() {
         return peerId;
     }
+
+    public boolean isRemovedMember() {
+        return isRemovedMember;
+    }
+
 }
