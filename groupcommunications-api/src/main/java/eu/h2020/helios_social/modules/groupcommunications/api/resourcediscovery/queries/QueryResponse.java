@@ -12,16 +12,21 @@ public class QueryResponse<T extends Queryable> implements AbstractMessage {
     private final String queryId;
     private Map<String, Double> scores;
     private Map<String, T> results;
+    private String type;
+    private int TTL;
+    protected final long timestamp;
 
-
-    private QueryResponse(String queryId, LinkedHashMap<String, Double> scores, HashMap<String, T> results) {
+    private QueryResponse(String queryId, LinkedHashMap<String, Double> scores, HashMap<String, T> results, String type, int TTL, long timestamp) {
         this.queryId = queryId;
         this.scores = scores;
         this.results = results;
+        this.type = type;
+        this.TTL = TTL;
+        this.timestamp = timestamp;
     }
 
-    public QueryResponse(String queryId) {
-        this(queryId, new LinkedHashMap<String, Double>(), new HashMap<String, T>());
+    public QueryResponse(String queryId, long timestamp) {
+        this(queryId, new LinkedHashMap<String, Double>(), new HashMap<String, T>(), new String(), 2, timestamp);
     }
 
     public Map<String, Double> getScores() {
@@ -33,6 +38,8 @@ public class QueryResponse<T extends Queryable> implements AbstractMessage {
     }
 
     public void appendResults(Map<T, Double> newResults) {
+        // when a user leaves a forum, then newResults has a null key, so we have to remove it
+        newResults.remove(null);
         scores.putAll(
                 newResults
                         .entrySet()
@@ -44,6 +51,8 @@ public class QueryResponse<T extends Queryable> implements AbstractMessage {
                 .entrySet()
                 .stream()
                 .collect(Collectors.toMap(entry -> entry.getKey().getId(), entry -> entry.getKey())));
+        Queryable queryable = (Queryable) newResults.keySet().toArray()[0];
+        type = queryable.getQueryableType();
     }
 
     public QueryResponse appendScores(Map<String, Double> scores) {
@@ -67,5 +76,27 @@ public class QueryResponse<T extends Queryable> implements AbstractMessage {
                 ", scores=" + scores +
                 ", results=" + results +
                 '}';
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public int getTTL() {
+        return TTL;
+    }
+
+    public void decrementTLL() {
+        TTL--;
+    }
+
+    public boolean isDead() {
+        //long currentTime = System.currentTimeMillis();
+        //long diff = currentTime - timestamp;
+        return TTL < 0; //|| diff > 60000;
+    }
+
+    public String getType() {
+        return this.type;
     }
 }

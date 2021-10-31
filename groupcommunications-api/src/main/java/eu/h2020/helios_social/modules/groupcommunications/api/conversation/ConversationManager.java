@@ -75,6 +75,9 @@ public interface ConversationManager<T> {
     Group getContactGroup(ContactId contactId, String contextId)
             throws DbException;
 
+    Group getContactGroup(String groupId)
+            throws DbException;
+
     ContactId getContactIdByGroupId(String groupId) throws DbException;
 
     ContactId getContactIdByGroupId(T txn, String groupId) throws DbException;

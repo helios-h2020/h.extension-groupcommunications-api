@@ -6,6 +6,7 @@ import eu.h2020.helios_social.modules.groupcommunications.api.contact.Contact;
 import eu.h2020.helios_social.modules.groupcommunications.api.contact.ContactId;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.DbException;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.FormatException;
+import eu.h2020.helios_social.modules.groupcommunications.api.group.GroupMember;
 
 /**
  * Interface for PrivateGroupManager
@@ -36,9 +37,9 @@ public interface PrivateGroupManager<T> {
     /**
      * Leaves a private group that was previously joined
      *
-     * @param privateGroup
+     * @param groupId
      */
-    void leavePrivateGroup(PrivateGroup privateGroup);
+    void leavePrivateGroup(String groupId) throws DbException;
 
 
     /**
@@ -79,7 +80,7 @@ public interface PrivateGroupManager<T> {
      * @param groupId
      * @return s collection of Private Group Members
      */
-    Collection<Contact> getMembers(String groupId)
+    Collection<GroupMember> getMembers(String groupId)
             throws DbException, FormatException;
 
     /**
@@ -91,30 +92,30 @@ public interface PrivateGroupManager<T> {
      * @throws DbException
      * @throws FormatException
      */
-    Collection<Contact> getMembers(T txn, String groupId)
+    Collection<GroupMember> getMembers(T txn, String groupId)
             throws DbException, FormatException;
 
     /**
      * Adds a member to the given private group
      *
-     * @param groupId
-     * @param contactId
+     * @param groupMember
      * @throws DbException
      * @throws FormatException
      */
-    void addMember(String groupId, ContactId contactId)
+    void addMember(GroupMember groupMember)
             throws DbException, FormatException;
 
     /**
      * Adds a member to the given private group
      *
      * @param txn
-     * @param groupId
-     * @param contactId
+     * @param groupMember
      * @throws DbException
      * @throws FormatException
      */
-    void addMember(T txn, String groupId, ContactId contactId)
+    void addMember(T txn, GroupMember groupMember)
             throws DbException, FormatException;
 
+
+    void removeMember(GroupMember groupMember) throws DbException, FormatException;
 }

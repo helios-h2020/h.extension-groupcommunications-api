@@ -46,7 +46,7 @@ public abstract class Query implements AbstractMessage {
     public boolean isDead() {
         long currentTime = System.currentTimeMillis();
         long diff = currentTime - timestamp;
-        return TTL <= 0 && diff <= 60000;
+        return TTL <= 0 || diff >= 60000;
     }
 
     @Override

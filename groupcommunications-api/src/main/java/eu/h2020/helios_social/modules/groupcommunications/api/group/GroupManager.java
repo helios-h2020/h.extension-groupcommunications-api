@@ -1,12 +1,14 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.group;
 
 import java.util.Collection;
+import java.util.List;
 
 import eu.h2020.helios_social.modules.groupcommunications.api.contact.ContactId;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.DbException;
 import eu.h2020.helios_social.modules.groupcommunications.api.exception.FormatException;
 import eu.h2020.helios_social.modules.groupcommunications.api.forum.Forum;
 import eu.h2020.helios_social.modules.groupcommunications.api.forum.ForumMemberRole;
+import eu.h2020.helios_social.modules.groupcommunications.api.forum.sharing.ForumAccessRequest;
 import eu.h2020.helios_social.modules.groupcommunications.api.privategroup.sharing.GroupInvitation;
 import eu.h2020.helios_social.modules.groupcommunications.api.utils.Pair;
 
@@ -44,6 +46,8 @@ public interface GroupManager<T> {
      */
     Group getGroup(String groupId, GroupType groupType)
             throws FormatException, DbException;
+
+    GroupType getGroupType(String groupId) throws DbException;
 
     boolean groupAlreadyExists(String groupId) throws DbException;
 
@@ -175,4 +179,26 @@ public interface GroupManager<T> {
 
     ForumMemberRole getRole(T txn, Forum forum) throws DbException,
             FormatException;
+
+
+    void addGroupAccessRequest(ForumAccessRequest forumAccessRequest)
+            throws DbException;
+
+
+    boolean containsGroupAccessRequestByGroupId(String pendingGroupId)
+            throws DbException;
+
+    Collection<ForumAccessRequest> getGroupAccessRequests()
+            throws DbException;
+
+
+    void removeGroupAccessRequest(ContactId contactId,
+                                  String pendingGroupId)
+            throws DbException;
+
+    int pendingIncomingGroupAccessRequest()
+            throws DbException;
+
+    int pendingOutgoingGroupAccessRequest()
+            throws DbException;
 }

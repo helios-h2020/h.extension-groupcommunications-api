@@ -4,7 +4,7 @@ import eu.h2020.helios_social.modules.groupcommunications.api.group.GroupType;
 
 public enum ContentAwareProfilingType {
 
-    NONE(0), FINE_INTEREST_PROFILE(1), COARSE_INTEREST_RPOFILE(2), DML_PROFILE(3);
+    NONE(0), FINE_INTEREST_PROFILE(1), COARSE_INTEREST_PROFILE(2), DML_PROFILE(3);
 
     private int value;
 

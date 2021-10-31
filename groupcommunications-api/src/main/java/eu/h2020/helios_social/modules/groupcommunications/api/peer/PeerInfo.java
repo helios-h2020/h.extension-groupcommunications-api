@@ -1,10 +1,12 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.peer;
 
+import eu.h2020.helios_social.modules.groupcommunications.api.messaging.AbstractMessage;
+
 /**
  * PeerInfo provides information about a peer that she is not included in the user's connections
  * but she can be communicate with her through public/secret forums
  */
-public class PeerInfo {
+public class PeerInfo implements AbstractMessage {
 
     private PeerId peerId;
     private byte[] profilePicture;

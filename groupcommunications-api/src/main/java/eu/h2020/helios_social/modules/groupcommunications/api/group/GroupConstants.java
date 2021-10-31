@@ -22,4 +22,6 @@ public interface GroupConstants {
 	String FORUM_START_DATE = "startDate";
 	String FORUM_END_DATE = "endDate";
 	String FORUM_DAYTIME = "daytime";
+
+
 }

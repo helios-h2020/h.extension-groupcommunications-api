@@ -2,6 +2,9 @@ package eu.h2020.helios_social.modules.groupcommunications.api.contact.connectio
 
 import org.jetbrains.annotations.NotNull;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+
 import eu.h2020.helios_social.modules.groupcommunications.api.messaging.AbstractMessage;
 
 public class ConnectionInfo implements AbstractMessage {
@@ -12,6 +15,7 @@ public class ConnectionInfo implements AbstractMessage {
 	private long timestamp;
 	private String groupId;
 	private String contextId;
+	private byte[] publicKey;
 
 	public ConnectionInfo() {
 	}
@@ -23,10 +27,11 @@ public class ConnectionInfo implements AbstractMessage {
 	}
 
 	public ConnectionInfo(@NotNull String alias, byte[] profilePicture,
-			long timestamp) {
+						  long timestamp, byte[] publicKey) {
 		this.alias = alias;
 		this.profilePicture = profilePicture;
 		this.timestamp = timestamp;
+		this.publicKey = publicKey;
 	}
 
 	public ConnectionInfo setMessage(String message) {
@@ -58,8 +63,12 @@ public class ConnectionInfo implements AbstractMessage {
 		return contextId;
 	}
 
+	public byte[] getPublicKey() {
+		return publicKey;
+	}
+
 	public ConnectionInfo setConversationInfo(String groupId,
-			String contextId) {
+											  String contextId) {
 		this.groupId = groupId;
 		this.contextId = contextId;
 		return this;

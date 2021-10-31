@@ -16,8 +16,17 @@ public class CommunicationConstants {
 
     public static final String GROUP_INVITE_PROTOCOL =
             "/helios-talk/group/invite";
+
+    public static final String GROUP_INVITE_AUTO_ACCEPT_PROTOCOL =
+            "/helios-talk/group/invite/auto_accept";
+    public static final String GROUP_REQUEST_PROTOCOL =
+            "/helios-talk/group/request";
     public static final String GROUP_INVITE_RESPONSE_PROTOCOL =
             "/helios-talk/group/response";
+    public static final String GROUP_REQUEST_RESPONSE_PROTOCOL =
+            "/helios-talk/group/request_response";
+    public static final String GROUP_REQUEST_FORWARD_PROTOCOL =
+            "/helios-talk/group/request/forward";
 
     public static final String FORUM_MEMBERSHIP_PROTOCOL =
             "/helios-talk/forum/membership/update-role";
@@ -34,4 +43,9 @@ public class CommunicationConstants {
             "helios-talk/query/location";
     public static final String QUERY_RESPONSE_PROTOCOL =
             "helios-talk/query/response";
+
+    // New Member Message
+    public static final String NEW_GROUP_MEMBER_PROTOCOL = "/helios-talk/private-group/new-member";
+    // Member List Message
+    public static final String GROUP_MEMBER_LIST_PROTOCOL = "/helios-talk/private-group/member-list";
 }

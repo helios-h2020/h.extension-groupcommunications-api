@@ -49,4 +49,6 @@ public interface ProfileManager<T> {
      * @throws DbException
      */
     Profile getProfile(String contextId) throws DbException;
+
+//    String getProfilingState();
 }

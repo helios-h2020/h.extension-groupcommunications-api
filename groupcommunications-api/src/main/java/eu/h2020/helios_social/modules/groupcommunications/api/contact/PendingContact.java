@@ -1,5 +1,7 @@
 package eu.h2020.helios_social.modules.groupcommunications.api.contact;
 
+import java.security.PublicKey;
+
 import javax.annotation.Nullable;
 
 public class PendingContact extends Contact {
@@ -17,8 +19,8 @@ public class PendingContact extends Contact {
     }
 
     public PendingContact(ContactId id, @Nullable String alias, byte[] profilePic,
-                          PendingContactType pendingContactType, String message, long timestamp) {
-        super(id, alias, profilePic);
+                          PendingContactType pendingContactType, String message, long timestamp, PublicKey publicKey) {
+        super(id, alias, profilePic, publicKey);
         this.pendingContactType = pendingContactType;
         this.message = message;
         this.timestamp = timestamp;
